@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "All items";
+}
+
+@model List<Item>
+
+
+<h1>Items</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">New item</a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        decimal stockValue = item.Price * item.Quantity;
+        <div class="card m-3" style="width:18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Price: @item.Price$</h6>
+                <p class="card-text">Quantity: @item.Quantity</p>
+                <p class="card-text">Value: @stockValue$</p>
+                <a class="btn btn-secondary" asp-action="EditItem" asp-route-id="@item.Id">Edit</a>
+                <a class="btn btn-outline-danger" asp-action="DeleteItem" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>

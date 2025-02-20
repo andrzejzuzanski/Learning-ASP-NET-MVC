@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Edit item";
+}
+
+@model Item
+
+<h1>Create new item</h1>
+
+<form asp-action="CreateForm">
+    <input hidden class="form-control" type="number" placeholder="0" asp-for="Id" />
+    <label mt-4>Name</label>
+    <input class="form-control" type="text" placeholder="Enter item name" asp-for="Name" />
+    <label mt-4>Price</label>
+    <input class="form-control" type="number" placeholder="0" step="0.01" asp-for="Price" />
+    <label mt-4>Quantity</label>
+    <input class="form-control" type="number" placeholder="0" asp-for="Quantity" />
+
+    <button class="btn btn-primary mt-4" type="submit">Edit</button>
+</form>
